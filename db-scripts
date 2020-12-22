@@ -1,0 +1,17 @@
+create database social-media-database;
+
+create schema sm-users-schema;
+
+create table sm-users{
+  userId       INT       NOT_NULL,
+  firstName    CHAR(20)  NOT_NULL,
+  lastName     CHAR(20)  NOT_NULL,
+  avatar       CHAR(20),
+  PRIMARY_KEY(userId)
+};
+
+create table sm-user-friends{
+  userId       INT    NOT_NULL,
+  friendId     INT    references sm-users(userId),
+  PRIMARY_KEY(userId)
+};
